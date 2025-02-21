@@ -12,20 +12,27 @@ services:
       - db
     networks:
       - app-network
+    command: python manage.py runserver 0.0.0.0:8004
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
     volumes:
       - ./frontend:/app  # Live code reloading
       - /app/node_modules  # Preserve installed modules
+      - /app/.next
     ports:
-      - "3001:3001"  # Nextjs server port
+      - "3000:3000"  # Nextjs server port
     environment:
       - CHOKIDAR_USEPOLLING=true  # Enable file watching in Docker
+      - WATCHPACK_POLLING=true
     networks:
       - app-network
     depends_on:
       - backend
+    command: npm run dev
   
   db:
     image: postgres:17.3

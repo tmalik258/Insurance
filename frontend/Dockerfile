@@ -6,15 +6,14 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-
-# Install dependencies
-RUN npm install
+RUN npm ci
 
 # Copy source files
 COPY . .
+COPY next.config.ts ./next.config.ts
 
 # Expose port 3001 for nextjs dev server (default is 3001)
-EXPOSE 3001
+EXPOSE 3000
 
 # Start development server with hot reloading
 CMD ["npm", "run", "dev"]
