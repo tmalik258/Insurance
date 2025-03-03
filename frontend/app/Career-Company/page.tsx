@@ -5,9 +5,7 @@ import Image from 'next/image';
 const Career = () => {
   return (
     <div className="relative w-full">
-      {/* Hero Section */}
       <div className="relative w-full h-96">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/careers-hero.jpg"
@@ -18,7 +16,6 @@ const Career = () => {
           />
         </div>
 
-        {/* Content Overlay */}
         <div className="absolute inset-0 z-10 flex flex-col justify-center p-8 md:p-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Careers</h1>
           <h2 className="text-2xl md:text-3xl font-medium text-gray-800 mb-8">Push boundaries. With us.</h2>
@@ -31,10 +28,9 @@ const Career = () => {
         </div>
       </div>
 
-      {/* About Us Section */}
       <div className="w-full py-12 px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Left Sidebar */}
+      
           <div className="md:col-span-3">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">About us</h2>
             
@@ -51,11 +47,9 @@ const Career = () => {
             </nav>
           </div>
           
-          {/* Main Content */}
           <div className="md:col-span-9">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Flexibility. Opportunity. Impact.</h2>
             
-            {/* YouTube Video Embed */}
             <div className="relative w-full aspect-video mb-8">
               <iframe 
                 className="w-full h-full"
@@ -85,15 +79,13 @@ const Career = () => {
         </div>
       </div>
 
-      {/* Talent Stories Section */}
       <div className="w-full py-12 px-4 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            {/* Left Column */}
+       
             <div className="md:col-span-5">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Talent stories</h2>
               
-              {/* Featured Story with Image */}
               <div className="mb-6">
                 <Image 
                   src="/images/talent-story-group.jpg" 
@@ -115,7 +107,6 @@ const Career = () => {
               </div>
             </div>
             
-            {/* Right Column */}
             <div className="md:col-span-7">
               <h3 className="text-lg font-medium text-blue-600 mb-6">Featured stories</h3>
               
@@ -129,7 +120,6 @@ const Career = () => {
                 </p>
               </div>
               
-              {/* Story Links */}
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-medium text-blue-600 mb-1">
@@ -169,7 +159,6 @@ const Career = () => {
         </div>
       </div>
 
-      {/* Benefits Section */}
       <div className="w-full py-12 px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold text-purple-700 text-center mb-6">Benefits at American Modern</h2>
@@ -179,7 +168,7 @@ const Career = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 mb-10">
-            {/* Left Column - Insurance Benefits */}
+            
             <div>
               <ul className="space-y-4 list-disc pl-5">
                 <li className="text-gray-700">
@@ -194,7 +183,6 @@ const Career = () => {
               </ul>
             </div>
             
-            {/* Right Column - More Insurance Benefits */}
             <div>
               <ul className="space-y-4 list-disc pl-5">
                 <li className="text-gray-700">
@@ -218,7 +206,7 @@ const Career = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-            {/* Left Column - Additional Benefits */}
+            
             <div>
               <ul className="space-y-4 list-disc pl-5">
                 <li className="text-gray-700">
@@ -245,7 +233,6 @@ const Career = () => {
               </ul>
             </div>
             
-            {/* Right Column - More Additional Benefits */}
             <div>
               <ul className="space-y-4 list-disc pl-5">
                 <li className="text-gray-700">
@@ -277,8 +264,6 @@ const Career = () => {
           </div>
         </div>
       </div>
-
-      {/* Find Your Place Section */}
       <div className="w-full bg-gray-100">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2">
           {/* Left Content */}
@@ -297,8 +282,6 @@ const Career = () => {
               </button>
             </Link>
           </div>
-          
-          {/* Right Image */}
           <div className="relative h-64 md:h-auto">
             <Image
               src="/images/employee-office.jpg"
