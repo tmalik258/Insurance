@@ -47,24 +47,35 @@ class UserManager(BaseUserManager, AbstractManager):
 
 class User(AbstractModel, AbstractBaseUser, PermissionsMixin):
 	"""
-	Custom User Model to include custom fields
+	Custom User Model to include custom fields for individual and business users
 	"""
+	USER_TYPE_CHOICES = (
+		("individual", "Individual"),
+		("business", "Business"),
+	)
+
 	username = models.CharField(db_index=True, max_length=255, unique=True)
-	first_name = models.CharField(max_length=255)
-	last_name = models.CharField(max_length=255)
+	first_name = models.CharField(max_length=255, blank=True, null=True)  # Optional for business
+	last_name = models.CharField(max_length=255, blank=True, null=True)   # Optional for business
+	primary_first_name = models.CharField(max_length=255)  # For both
+	primary_last_name = models.CharField(max_length=255)   # For both
 	email = models.EmailField(db_index=True, unique=True)
+	user_type = models.CharField(max_length=20, choices=USER_TYPE_CHOICES, default="individual")
+	policy_number = models.PositiveIntegerField(max_length=20)
+	zip_code = models.CharField(max_length=10)  # Use CharField for ZIP codes to handle formatting
 	is_active = models.BooleanField(default=True)
 	is_superuser = models.BooleanField(default=False)
-	
-	USERNAME_FIELD = 'username'
-	EMAIL_FIELD  = 'email'
+
+	USERNAME_FIELD = "username"
+	EMAIL_FIELD = "email"
 
 	objects = UserManager()
 
 	def __str__(self) -> str:
 		return self.email
-	
+
 	@property
 	def name(self):
-		return f"{self.first_name} {self.last_name}"
-	
+		if self.user_type == "individual":
+			return f"{self.primary_first_name} {self.primary_last_name}"
+		return f"{self.first_name} {self.last_name}" if self.first_name and self.last_name else self.username

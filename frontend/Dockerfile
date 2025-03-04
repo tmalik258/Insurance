@@ -6,13 +6,19 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-RUN npm ci
+
+# Install dependencies
+RUN npm install
 
 # Copy source files
 COPY . .
-COPY next.config.ts ./next.config.ts
 
-# Expose port 3001 for nextjs dev server (default is 3001)
+# Create a non-root user
+RUN useradd -m -r -u 1001 appuser
+RUN chown -R appuser:appuser /app
+USER appuser
+
+# Expose port 3000 for nextjs dev server (default is 3000)
 EXPOSE 3000
 
 # Start development server with hot reloading
