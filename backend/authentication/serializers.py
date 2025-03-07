@@ -19,7 +19,11 @@ class UserSerializer(AbstractSerializer):
             "email",
             "first_name",
             "last_name",
-            "bio",
+            "primary_first_name",
+            "primary_last_name",
+            "user_type",
+            "policy_number",
+            "zip_code",
             "is_active",
             "created",
             "updated",
@@ -28,31 +32,26 @@ class UserSerializer(AbstractSerializer):
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
-    username_field = serializers.CharField()
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields[self.username_field] = serializers.CharField()
-
     def validate(self, attrs):
-        username_field = attrs.get(self.username_field)
+        username = attrs.get("username")
 
-        if username_field and '@' in username_field:
+        if username and '@' in username:
             # Try to authenticate with email
             try:
-                user = User.objects.get(email=username_field)
+                user = User.objects.get(email=username)
                 attrs['username'] = user.username  # Use the username for SimpleJWT
             except User.DoesNotExist:
                 raise serializers.ValidationError("Invalid email or password")
         else:
             # Use username as is
-            attrs['username'] = username_field
+            attrs['username'] = username
 
         return super().validate(attrs)
 
 
 class LoginSerializer(CustomTokenObtainPairSerializer):
     def validate(self, attrs):
+        print("attrs", attrs)
         data = super().validate(attrs)
 
         refresh = self.get_token(self.user)

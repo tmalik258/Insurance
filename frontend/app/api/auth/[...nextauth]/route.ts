@@ -22,25 +22,7 @@ export const authOptions: NextAuthOptions = {
         const { identifier, password } = credentials;
         try {
           // Determine if identifier is an email or username
-          let res;
-          if (identifier.includes("@")) {
-            // Treat as email
-            res = await fetch(
-              `${process.env.BACKEND_URL}/auth/login/`,
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  email: identifier,
-                  password: password,
-                }),
-              }
-            );
-          } else {
-            // Treat as username
-            res = await fetch(
+          const res = await fetch(
               `${process.env.BACKEND_URL}/auth/login/`,
               {
                 method: "POST",
@@ -53,18 +35,18 @@ export const authOptions: NextAuthOptions = {
                 }),
               }
             );
-          }
 
           if (!res.ok) {
             throw new Error("Authentication failed");
           }
 
-          const dataUser = await res.json();
+          const data = await res.json();
+          console.log("Data received:", data);
 
-          if (dataUser && dataUser?.token) {
+          if (data && data?.access) {
             return {
-              id: dataUser.id,
-              email: dataUser.user.email, // Assuming the backend returns user data
+              id: data.user.id,
+              email: data.user.email, // Assuming the backend returns user data
             };
           }
           return null;
