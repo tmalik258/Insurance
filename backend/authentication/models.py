@@ -61,7 +61,7 @@ class User(AbstractModel, AbstractBaseUser, PermissionsMixin):
 	primary_last_name = models.CharField(max_length=255)   # For both
 	email = models.EmailField(db_index=True, unique=True)
 	user_type = models.CharField(max_length=20, choices=USER_TYPE_CHOICES, default="individual")
-	policy_number = models.PositiveIntegerField(max_length=20)
+	policy_number = models.PositiveIntegerField()
 	zip_code = models.CharField(max_length=10)  # Use CharField for ZIP codes to handle formatting
 	is_active = models.BooleanField(default=True)
 	is_superuser = models.BooleanField(default=False)

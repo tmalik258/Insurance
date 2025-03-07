@@ -64,7 +64,7 @@ const Career = () => {
               <p className="text-gray-700 mb-4">
                 American Modern, a Munich Re company, is widely recognized as a specialty 
                 insurance leader that delivers residential and recreational products and services. 
-                But, we're also known as a Top Workplace with a vibrant and inclusive culture that 
+                But, we&apos;re also known as a Top Workplace with a vibrant and inclusive culture that 
                 ensures employees boundless opportunity to grow their careers and make a 
                 difference every day in a flexible environment that helps them succeed.
               </p>
@@ -112,7 +112,7 @@ const Career = () => {
               
               <div className="prose max-w-none mb-8">
                 <p className="text-gray-700">
-                  It's not possible for us to tell you every single employee talent story—you'd 
+                  It&apos;s not possible for us to tell you every single employee talent story—you&apos;d 
                   honestly have to come work here to know all of the amazing things our 
                   employees get to do. But, here are just a few that can help you see what 
                   types of career- and business- enhancing opportunities you can get, just 

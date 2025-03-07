@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ChevronUp, Hexagon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 
 import {
   DropdownMenu,
@@ -56,10 +56,10 @@ export function Navbar() {
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger>Residential</DropdownMenuSubTrigger>
                   <DropdownMenuSubContent className="w-48">
-                    <DropdownMenuItem onClick={() => handleNavigation("/insurance/residential/full-time")}>Full time</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => handleNavigation("/insurance/residential/part-time")}>Part time</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => handleNavigation("/insurance/residential/rental")}>Rental</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => handleNavigation("/insurance/residential/vacant")}>Vacant</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleNavigation("/residential")}>Full time</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleNavigation("/residential")}>Part time</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleNavigation("/residential")}>Rental</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleNavigation("/residential")}>Vacant</DropdownMenuItem>
                   </DropdownMenuSubContent>
                 </DropdownMenuSub>
 
@@ -67,16 +67,16 @@ export function Navbar() {
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger>Recreational</DropdownMenuSubTrigger>
                   <DropdownMenuSubContent className="w-48">
-                    <DropdownMenuItem onClick={() => handleNavigation("/insurance/recreational/collector-vehicle")}>Collector Vehicle</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => handleNavigation("/insurance/recreational/motorsports")}>Motorsports</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => handleNavigation("/insurance/recreational/boat")}>Boat</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => handleNavigation("/insurance/recreational/yacht")}>Yacht</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleNavigation("/recreational/collector-vehicle")}>Collector Vehicle</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleNavigation("/recreational/motorsports")}>Motorsports</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleNavigation("/recreational/boat")}>Boat</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleNavigation("/recreational/yacht")}>Yacht</DropdownMenuItem>
                   </DropdownMenuSubContent>
                 </DropdownMenuSub>
 
                 {/* Other Items */}
-                <DropdownMenuItem onClick={() => handleNavigation("/insurance/pet-health")}>Pet Health</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleNavigation("/insurance/all-solutions")}>All Solutions</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleNavigation("/pet-health")}>Pet Health</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleNavigation("/all-solutions")}>All Solutions</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 

@@ -23,7 +23,11 @@ class LoginViewset(ViewSet):
         try:
             serializer.is_valid(raise_exception=True)
         except TokenError as e:
+            print("TokenError:", e.args[0])
             raise InvalidToken(e.args[0])
+        except Exception as e:
+            print("Validation error:", str(e))
+            raise
 
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
